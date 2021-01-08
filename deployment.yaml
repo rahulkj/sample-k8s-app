@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: app-config
 data:
-  greetingMessage: "Hi from k8s"
+  greetingMessage: "Hi from k8s deployment!!"
 
 ---
 apiVersion: apps/v1

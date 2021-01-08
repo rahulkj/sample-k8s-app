@@ -7,6 +7,8 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
+import com.rahul.data.GreetingData;
+
 import reactor.core.publisher.Mono;
 
 @Component
@@ -16,7 +18,9 @@ public class GreetingHandler {
 	String greetingMessage;
 
 	public Mono<ServerResponse> hello(ServerRequest request) {
-		return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN).body(BodyInserters.fromValue(greetingMessage));
+		GreetingData greetingData = new GreetingData(greetingMessage);
+		
+		return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(BodyInserters.fromValue(greetingData));
 	}
 
 }
